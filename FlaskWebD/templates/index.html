@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Registro de Personas</title>
+<link type="text/css" rel="stylesheet" href="static/css/styleupeulp1.css" />
+<script type="text/javascript" src="static/js/jquery.js"></script>
+<script type="text/javascript">
+	function posicionFocus() {
+		$("#usuario").focus();
+	}
+	function ver(){
+		alert($("#nombre").val());
+	}
+	function saludo(){
+		alert("Holas Ñaño");
+	} 
+</script>
+</head>
+<body>
+
+	<div align="center" id="divFAdd" >
+	<center>	
+	<form action="/agregar" id="formAdd" name="formAdd">
+	<table>
+		<tr>
+			<td>Nombre:</td>
+			<td><input type="text" id="nombre" name="nombre" class="txtRegular" placeholder="Coloque su nombre"> </td>		
+		</tr>
+		<tr>
+			<td>Apellido Paterno:</td>
+			<td><input type="text" id="apellpat" name="apellpat"> </td>		
+		</tr>
+		<tr>
+			<td>Apellido Materno:</td>
+			<td><input type="text" id="apellmat" name="apellmat"> </td>		
+		</tr>
+		<tr>
+			<td>DNI:</td>
+			<td><input type="text" maxlength="8" size="10" id="dni" name="dni"> </td>		
+		</tr>	
+		<tr>
+			<td>Fecha Nacimiento:</td>
+			<td><input type="date" id="fnacimiento" name="fnacimiento" placeholder="yyyy-mm-dd" > </td>		
+		</tr>
+		<tr>
+			<td>Sexo:</td>
+			<td>
+			<div> 
+			Masculino<input type="radio" value="M" id="sexo" name="sexo" checked="checked"> 
+			Femenino<input type="radio" value="F" id="sexo" name="sexo" > </div>			
+			</td>		
+		</tr>			
+		<tr>
+			<td>Direcci&oacute;n:</td>
+			<td>			
+			<textarea rows="4" id="directhion" name="directhion" cols="25"></textarea>
+			</td>		
+		</tr>
+		<tr>
+			<td>Celular:</td>
+			<td>			
+			<input type="text" id="celular" name="celular" placeholder="Numero">
+			</td>		
+		</tr>		
+		<tr>
+			<td>Estado:</td>
+			<td>			
+			<select id="estado" name="estado">
+				<option value="1">Activo </option>
+				<option value="0">Desactivo </option>
+			</select>
+			</td>		
+		</tr>
+		<tr> 
+		<td colspan="2"><hr> </td> 
+		</tr>	
+		<tr>
+			<td colspan="2" align="center">
+			<input type="submit" id="btnRegistrar" class="btnAdd"   name="btnRegistrar" value="Registrar">
+			<input type="reset" id="btnLimpiar"  class="btnReset" name="btnLimpiar" value="Limpiar"> 
+			</td>	
+		</tr>												
+	</table>	
+	</form>	
+	</center>
+	</div>
+	<div align="center">
+	<form action="/buscar">
+	<table>
+		<tr>
+		<td>
+		Nombre de Persona: <input type="text" id="nombrebuscar" name="nombrebuscar" size="60px"> 
+		<input type="submit"  id="btnBuscar"  name="btnBuscar" value="Buscar">
+		</td>
+		</tr>
+	</table>
+	</form>
+	</div>
+	<div align="center" >
+	<table border="1">
+		<tr>
+			<td>Nombre</td>
+			<td>Apellido Paterno</td>
+			<td>Apellido Materno</td>
+			<td>DNI</td>
+			<td>F.Nacimiento</td>
+			<td>Direccion</td>
+			<td>Celular</td>
+			<td>Estado</td>
+			<td>Opciones</td>
+		</tr>
+		{% for item in newsitems %}
+		
+		<tr>
+			<td>{{ item[1] }}</td>
+			<td>{{ item[2] }}</td>
+			<td>{{ item[3] }}</td>
+			<td>{{ item[4] }}</td>
+			<td>{{ item[5] }}</td>
+			<td>{{ item[7] }}</td>
+			<td>{{ item[8] }}</td>
+			
+			<td>						
+				{% if item[9] == 1 %}
+       				Activo
+      			{% else %}
+     				Desactivo
+     	 		{% endif %}			
+			</td>
+			
+			<td>
+			<a href="/eliminar?idpersona={{ item[0] }}"  ><img alt="Eliminar" src="static/img/eliminar.png"></a>			
+			<a href="/editar?idpersona={{ item[0] }}"  ><img alt="Actualizar" src="static/img/modificar.png"></a> </td>
+		</tr>
+		{% endfor %}
+	</table>
+
+	</div>
+	
+</body>
+</html>

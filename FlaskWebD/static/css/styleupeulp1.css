@@ -1,0 +1,50 @@
+
+body {
+
+    background:url("../img/fondo.jpg") repeat-x;
+    padding: 2px;
+    border-spacing: 4px;
+    font-family: Verdana, Geneva, sans-serif;
+    text-align: center;
+}
+
+#divFAdd {
+/*     background:url("../img/fondo.jpg") repeat-x; */
+    padding: 2px;        
+    font-family: Verdana, Geneva, sans-serif;
+    text-align: center;
+}
+
+.txtRegular { 
+  background: url(../img/text.png) no-repeat;
+  padding-left: 25px;
+  background-color: white;
+}
+
+.btnAdd {  
+  background: url(../img/btnAdd.png) no-repeat;
+  padding-left: 25px;
+  background-color: menu;
+  height: 30px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+
+.btnReset {  
+  background: url(../img/btnReset.png) no-repeat;
+  padding-left: 25px;
+  background-color: menu;  
+  height: 30px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+
+.btnCancelar {  
+  background: url(../img/btnCancel.png) no-repeat;
+  padding-left: 25px;
+  background-color: menu;
+    
+  height: 30px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
